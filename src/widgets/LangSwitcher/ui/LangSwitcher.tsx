@@ -7,22 +7,22 @@ interface LangSwitcherProps {
   className?: string;
 }
 
-const LangSwitcher = ({className}: LangSwitcherProps) => {
-  const { t, i18n } = useTranslation();
+const LangSwitcher = ({ className }: LangSwitcherProps) => {
+    const { t, i18n } = useTranslation();
 
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === "en" ? "ru" : "en");
-  };
+    const toggleLanguage = () => {
+        i18n.changeLanguage(i18n.language === "en" ? "ru" : "en");
+    };
 
-  return (
-    <Button 
-      className={classNames(cls.LangSwitcher, {}, [className])}
-      theme={ThemeButtton.CLEAR} 
-      onClick={toggleLanguage}
-    >
-      {t("language")}
-    </Button>
-  );
-}
+    return (
+        <Button
+            className={classNames(cls.LangSwitcher, {}, [className])}
+            theme={ThemeButtton.CLEAR}
+            onClick={toggleLanguage}
+        >
+            {t("language")}
+        </Button>
+    );
+};
 
 export default LangSwitcher;
