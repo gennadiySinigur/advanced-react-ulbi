@@ -5,8 +5,10 @@ export function classNames(cls: string, modes: Modes = {}, additional: string[] 
         cls,
         ...additional.filter(Boolean),
         Object.entries(modes)
-            .filter(([key, value]) => Boolean(value))
-            .map(([key]) => key),
+            .filter(([_, value]) => Boolean(value))
+            .map(([className]) => className),
     ]
-        .join(" ");
+        .join(" ")
+        .replace(",", " ")
+        .trim();
 }
